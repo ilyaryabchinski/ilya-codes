@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import meImage from '../assets/me.png';
+---
+<div class="bento-card p-4 md:p-6 h-full">
+  <div class="flex flex-col items-center md:items-start">
+    <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-auto overflow-hidden mb-4 md:mb-6 rounded-xl aspect-square">
+      <Image src={meImage}
+           alt="Ilya Rabchynski" 
+           width={300}
+           height={300}
+           class="w-full h-full object-cover" />
+    </div>
+    
+    <div class="text-center md:text-left mb-4 md:mb-6">
+      <h1 class="text-xl md:text-2xl font-bold flex items-center mb-1 justify-center">
+        That's me!
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 mb-3 md:mb-4 max-w-xs font-semibold text-center">
+        Coding for 7 years. Still no idea what I'm doing, but hey, it works!
+      </p>
+    </div>
+    
+    <!-- <div class="flex gap-3 mb-4 md:mb-6">
+      <button class="button-primary text-xs md:text-sm px-3 py-2 md:px-4 md:py-2">
+        Book A Call
+      </button>
+      <button class="button-secondary text-xs md:text-sm px-3 py-2 md:px-4 md:py-2">
+        Copy Email
+      </button>
+    </div> -->
+  </div>
+</div> 

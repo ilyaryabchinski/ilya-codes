@@ -1,1 +1,207 @@
 @import "tailwindcss";
+
+:root {
+  /* Dark theme (default) */
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #0f0f2d 70%, #1a1a35 100%);
+  --card-bg: transparent;
+  --hover-card-bg: #2e3149;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --accent-yellow: #ffd60a;
+  --accent-blue: #3a86ff;
+  --border-color: #373951;
+}
+
+.light-theme {
+  /* Light theme */
+  --bg-gradient: linear-gradient(135deg, #e9f3ff 0%, #f5f7fa 50%, #e6f7ff 100%);
+  --card-bg: transparent;
+  --hover-card-bg: #f8faff;
+  --text-primary: #18273f;
+  --text-secondary: #374151;
+  --accent-yellow: #d97706;
+  --accent-blue: #2563eb;
+  --border-color: #d1d5db;
+}
+
+body {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 15% 50%, rgba(255, 214, 10, 0.08) 0%, transparent 25%),
+              radial-gradient(circle at 85% 30%, rgba(58, 134, 255, 0.08) 0%, transparent 25%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bento-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.bento-card:hover {
+  background-color: var(--hover-card-bg);
+  transform: translateY(-4px);
+}
+
+.header-nav {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.button-primary {
+  background-color: var(--accent-yellow);
+  color: #000000;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.button-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.accent-text {
+  color: var(--accent-yellow);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-yellow), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.expertise-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.light-theme .expertise-card {
+  background-color: #f1f5f9;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.expertise-card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.light-theme .expertise-card:hover {
+  background-color: #e5edf7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.service-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.light-theme .service-card {
+  background-color: #f1f5f9;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.service-card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.light-theme .service-card:hover {
+  background-color: #e5edf7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.hidden {
+  display: none;
+}
+
+.light-theme .bento-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.light-theme .header-nav {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .text-gray-400 {
+  color: #4b5563;
+}
+
+.light-theme .text-gray-500 {
+  color: #374151;
+}
+
+.light-theme .text-white {
+  color: var(--text-primary);
+}
+
+.light-theme .force-white {
+  color: #ffffff;
+}
