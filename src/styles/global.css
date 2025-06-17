@@ -205,3 +205,39 @@ body::before {
 .light-theme .force-white {
   color: #ffffff;
 }
+
+.nav-item {
+  position: relative;
+  color: var(--text-primary);
+  opacity: 0.8;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  background-color: transparent;
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  opacity: 1;
+  color: #000000;
+  background-color: var(--accent-yellow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(215,119,6,0.08);
+}
+
+.nav-item.active {
+  opacity: 1;
+  color: var(--accent-yellow);
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.light-theme .nav-item:hover {
+  background-color: var(--accent-yellow);
+}
+.dark-theme .nav-item {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.24);
+}
