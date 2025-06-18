@@ -2,6 +2,30 @@
 import eslFaceitGroupLogo from '../assets/esl-faceit-group.png';
 import haiiloLogo from '../assets/haiilo.png';
 import samSolutionsLogo from '../assets/sam-solutions.png';
+
+const workExperiences = [
+  {
+    logo: eslFaceitGroupLogo.src,
+    alt: "ESL FACEIT Group Logo",
+    company: "ESL FACEIT Group",
+    position: "Software Engineer - Frontend",
+    years: "2022 - now",
+  },
+  {
+    logo: haiiloLogo.src,
+    alt: "Haiilo Logo",
+    company: "Haiilo",
+    position: "Frontend Engineer",
+    years: "2020 - 2022",
+  },
+  {
+    logo: samSolutionsLogo.src,
+    alt: "Sam Solutions Logo",
+    company: "Sam Solutions",
+    position: "Front-End Software Developer",
+    years: "2018 - 2020",
+  },
+];
 ---
 
 <div class="bento-card p-4 md:p-6 h-full">
@@ -10,37 +34,17 @@ import samSolutionsLogo from '../assets/sam-solutions.png';
   </div>
   
   <div class="space-y-4 md:space-y-6">
-    <div class="flex items-center gap-4">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center">
-        <img src={eslFaceitGroupLogo.src} alt="ESL FACEIT Group Logo" class="w-full h-full object-contain">
+    {workExperiences.map(experience => (
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center">
+          <img src={experience.logo} alt={experience.alt} class="w-full h-full object-contain">
+        </div>
+        <div>
+          <h3 class="font-medium text-primary">{experience.company}</h3>
+          <p class="text-sm text-gray-400">{experience.position}</p>
+          <p class="text-xs text-gray-500">{experience.years}</p>
+        </div>
       </div>
-      <div>
-        <h3 class="font-medium text-primary">ESL FACEIT Group</h3>
-        <p class="text-sm text-gray-400">Software Engineer - Frontend</p>
-        <p class="text-xs text-gray-500">2022 - now</p>
-      </div>
-    </div>
-    
-    <div class="flex items-center gap-4">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center">
-        <img src={haiiloLogo.src} alt="Haiilo Logo" class="w-full h-full object-contain">
-      </div>
-      <div>
-        <h3 class="font-medium text-primary">Haiilo</h3>
-        <p class="text-sm text-gray-400">Frontend Engineer</p>
-        <p class="text-xs text-gray-500">2020 - 2022</p>
-      </div>
-    </div>
-    
-    <div class="flex items-center gap-4">
-      <div class="w-10 h-10 rounded-lg flex items-center justify-center">
-        <img src={samSolutionsLogo.src} alt="Sam Solutions Logo" class="w-full h-full object-contain">
-      </div>
-      <div>
-        <h3 class="font-medium text-primary">Sam Solutions</h3>
-        <p class="text-sm text-gray-400">Front-End Software Developer</p>
-        <p class="text-xs text-gray-500">2018 - 2020</p>
-      </div>
-    </div>
+    ))}
   </div>
 </div> 
