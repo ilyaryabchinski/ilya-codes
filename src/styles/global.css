@@ -1,19 +1,9 @@
 @import "tailwindcss";
 
-:root {
-  /* Dark theme (default) */
-  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #0f0f2d 70%, #1a1a35 100%);
-  --card-bg: transparent;
-  --hover-card-bg: #2e3149;
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0b0;
-  --accent-yellow: #ffd60a;
-  --accent-blue: #3a86ff;
-  --border-color: #373951;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
-.light-theme {
-  /* Light theme */
+:root {
+  /* Light theme variables */
   --bg-gradient: linear-gradient(135deg, #e9f3ff 0%, #f5f7fa 50%, #e6f7ff 100%);
   --card-bg: transparent;
   --hover-card-bg: #f8faff;
@@ -22,6 +12,18 @@
   --accent-yellow: #d97706;
   --accent-blue: #2563eb;
   --border-color: #d1d5db;
+}
+
+.dark {
+  /* Dark theme variables */
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #0f0f2d 70%, #1a1a35 100%);
+  --card-bg: transparent;
+  --hover-card-bg: #2e3149;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --accent-yellow: #ffd60a;
+  --accent-blue: #3a86ff;
+  --border-color: #373951;
 }
 
 body {
@@ -93,7 +95,10 @@ body::before {
 }
 
 .expertise-card {
-  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  background-color: #f1f5f9;
+  box-shadow: 0 2px 8px #0000000a;
+  background-color: #f1f5f9;
   border-radius: 12px;
   padding: 16px;
   display: flex;
@@ -102,41 +107,22 @@ body::before {
   justify-content: center;
   transition: all 0.3s ease;
 }
-
-.light-theme .expertise-card {
-  background-color: #f1f5f9;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
 .expertise-card:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.light-theme .expertise-card:hover {
   background-color: #e5edf7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px #0000000f;
+}
+.dark .expertise-card { 
+  background-color: #ffffff0d;
+  border: none;
+}
+.dark .expertise-card:hover {
+  background-color: #ffffff1a;
 }
 
-.light-theme .bento-card {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
 
-.light-theme .header-nav {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
 
-.light-theme .text-gray-400 {
-  color: #4b5563;
-}
 
-.light-theme .text-gray-500 {
-  color: #374151;
-}
 
-.light-theme .text-white {
-  color: var(--text-primary);
-}
 
 .nav-item {
   position: relative;
@@ -167,9 +153,6 @@ body::before {
   box-shadow: none;
 }
 
-.light-theme .nav-item:hover {
-  background-color: var(--accent-yellow);
-}
-.dark-theme .nav-item {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.24);
-}
+.dark .nav-item {
+    box-shadow: 0 2px 8px #0000003d;
+  }
