@@ -74,26 +74,6 @@ body::before {
   transform: translateY(-4px);
 }
 
-.header-nav {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.header-nav::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
-  pointer-events: none;
-}
-
 .expertise-card {
   border: 1px solid var(--border-color);
   background-color: #f1f5f9;
@@ -118,41 +98,3 @@ body::before {
 .dark .expertise-card:hover {
   background-color: #ffffff1a;
 }
-
-
-
-
-
-
-.nav-item {
-  position: relative;
-  color: var(--text-primary);
-  opacity: 0.8;
-  border-radius: 8px;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  background-color: transparent;
-  padding: 0.5rem 0.75rem;
-  font-weight: 500;
-}
-
-.nav-item:hover {
-  opacity: 1;
-  color: #000000;
-  background-color: var(--accent-yellow);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(215,119,6,0.08);
-}
-
-.nav-item.active {
-  opacity: 1;
-  color: var(--accent-yellow);
-  font-weight: 600;
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.dark .nav-item {
-    box-shadow: 0 2px 8px #0000003d;
-  }
