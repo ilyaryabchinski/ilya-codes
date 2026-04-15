@@ -1,14 +1,41 @@
-<div class="bento-card p-4">
-  <h2 class="text-lg font-bold mb-2">Pet Projects</h2>
-  <p class="text-sm text-gray-400 mb-4">For fun and education</p>
-  
-  <div class="rounded-lg overflow-hidden mb-3 aspect-[4/3] max-h-[200px] w-full">
-    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200&q=80" 
-         alt="Project preview" 
-         class="w-full h-full object-cover" />
+<div class="bento-card p-4 h-full flex flex-col">
+  <div class="flex justify-between items-center mb-1">
+    <h2 class="text-lg font-bold text-[color:var(--text-primary)]">Pet Projects</h2>
+    <span class="glass-badge">For fun</span>
   </div>
-  
-  <div class="flex justify-center">
-    <a href="/projects" class="nav-item text-xs text-center">View Projects</a>
+  <p class="text-sm text-[color:var(--text-secondary)] mb-4">For fun and education</p>
+
+  <div class="rounded-2xl overflow-hidden mb-4 aspect-[4/3] max-h-[200px] w-full glass-image-wrap flex-shrink-0">
+    <img
+      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200&q=80"
+      alt="Project preview"
+      class="w-full h-full object-cover"
+    />
   </div>
-</div> 
+
+  <div class="flex justify-center mt-auto">
+    <a href="/projects" class="glass-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+      </svg>
+      View Projects
+    </a>
+  </div>
+</div>
+
+<style>
+  .glass-image-wrap {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+
+  .glass-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.15) 100%);
+    pointer-events: none;
+  }
+</style>

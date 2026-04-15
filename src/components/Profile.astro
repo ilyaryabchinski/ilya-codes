@@ -4,21 +4,31 @@ import meImage from '../assets/me.png';
 ---
 <div class="bento-card p-4 md:p-6 h-full">
   <div class="flex flex-col items-center md:items-start">
-    <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-auto overflow-hidden mb-4 md:mb-6 rounded-xl aspect-square">
-      <Image src={meImage}
-           alt="My photo" 
-           width={300}
-           height={300}
-           class="w-full h-full object-cover" />
+    <!-- Avatar with glass ring -->
+    <div class="glass-avatar-ring mb-4 md:mb-6 w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-auto aspect-square">
+      <div class="w-full h-full rounded-[18px] overflow-hidden">
+        <Image src={meImage}
+             alt="My photo"
+             width={300}
+             height={300}
+             class="w-full h-full object-cover" />
+      </div>
     </div>
-    
-    <div class="text-center md:text-left mb-4 md:mb-6">
-      <h1 class="text-xl md:text-2xl font-bold flex items-center mb-1 justify-center">
+
+    <div class="text-center md:text-left w-full">
+      <h1 class="text-xl md:text-2xl font-bold mb-2">
         That's me!
       </h1>
-      <p class="text-lg md:text-xl text-[color:var(--text-secondary)] mb-3 md:mb-4 max-w-xs font-semibold text-center">
+      <p class="text-sm md:text-base text-[color:var(--text-secondary)] mb-4 leading-relaxed">
         Coding for 7 years. Still no idea what I'm doing, but hey, it works!
       </p>
+
+      <!-- Glass badges -->
+      <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+        <span class="glass-badge">Frontend</span>
+        <span class="glass-badge">TypeScript</span>
+        <span class="glass-badge">React</span>
+      </div>
     </div>
   </div>
-</div> 
+</div>

@@ -101,13 +101,16 @@ const expertiseItems = [
 ---
 
 <div class="bento-card p-4 md:p-6">
-    <h2 class="text-xl font-bold mb-4 md:mb-6">I Work With</h2>
-    
+    <div class="flex justify-between items-center mb-4 md:mb-6">
+      <h2 class="text-xl font-bold text-[color:var(--text-primary)]">I Work With</h2>
+      <span class="glass-badge">{expertiseItems.length} technologies</span>
+    </div>
+
     <div class="grid grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4">
       {expertiseItems.map((item) => (
         <div class="expertise-card">
           <Fragment set:html={item.svg} />
-          <span class="text-xs text-center">{item.name}</span>
+          <span class="text-xs text-center font-medium text-[color:var(--text-secondary)]">{item.name}</span>
         </div>
       ))}
     </div>
