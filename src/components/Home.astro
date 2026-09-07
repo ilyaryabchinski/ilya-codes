@@ -1,39 +1,27 @@
 ---
-import Profile from './Profile.astro';
-import WorkExperience from './WorkExperience.astro';
+import FullStack from './FullStack.astro';
 import Contacts from './Contacts.astro';
 import PetProjects from './PetProjects.astro';
 import Posts from './Posts.astro';
-import TechStack from './TechStack.astro';
 ---
-<section class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 md:gap-6">
-  <!-- Profile Section -->
-  <div class="md:col-span-4 md:row-span-3">
-    <Profile />
-  </div>
-
-  <!-- Work Experience -->
-  <div class="md:col-start-5 md:col-end-13 md:row-start-1 md:row-end-3">
-    <WorkExperience />
+<section class="grid grid-cols-1 gap-4 lg:gap-6">
+  <!-- Full-stack overview -->
+  <div>
+    <FullStack />
   </div>
 
   <!-- Contacts -->
-  <div class="md:col-start-5 md:col-end-13 md:row-start-3 md:row-end-4">
+  <div>
     <Contacts />
   </div>
 
-  <!-- Pet Projects and Posts (full row, each 50%) -->
-  <div class="md:col-span-12 md:row-start-4 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 md:gap-6">
+  <!-- Pet Projects and Posts -->
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">
     <div class="md:col-span-6">
       <PetProjects />
     </div>
     <div class="md:col-span-6">
       <Posts />
     </div>
-  </div>
-
-  <!-- My Tech Stack -->
-  <div class="md:col-span-12">
-    <TechStack />
   </div>
 </section>

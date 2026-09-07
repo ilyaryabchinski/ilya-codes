@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/geist-mono": "^5.2.6",
     "@fontsource/geist-sans": "^5.2.5",
+    "@fontsource/press-start-2p": "^5.2.6",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.3.1",
     "tailwindcss": "^4.1.13"

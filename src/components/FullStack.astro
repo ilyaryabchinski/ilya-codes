@@ -1,0 +1,26 @@
+---
+const loadout = [
+  ["FRONT END", "React / Next.js / TypeScript"],
+  ["BACK END", "Python / FastAPI / Go"],
+  ["AI SYSTEMS", "Agents / RAG / LangGraph"],
+  ["DATA", "PostgreSQL / Redis / DynamoDB"],
+  ["INFRA", "AWS / Kubernetes / Docker"],
+];
+---
+
+<section class="bento-card fullstack-card h-full p-5 md:p-7">
+  <p class="eyebrow mb-3">Player class / full-stack AI engineer</p>
+  <h2 class="section-heading">Build the whole thing.</h2>
+  <p class="section-copy mt-5 max-w-2xl">
+    I ship production AI systems end to end: React interfaces, Python services,
+    agent orchestration, retrieval, data stores, and cloud infrastructure.
+  </p>
+  <div class="loadout-grid mt-7">
+    {loadout.map(([label, skills]) => (
+      <div class="loadout-item">
+        <span>{label}</span>
+        <strong>{skills}</strong>
+      </div>
+    ))}
+  </div>
+</section>

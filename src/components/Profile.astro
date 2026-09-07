@@ -1,24 +1,8 @@
----
-import { Image } from 'astro:assets';
-import meImage from '../assets/me.png';
----
-<div class="bento-card p-4 md:p-6 h-full">
-  <div class="flex flex-col items-center md:items-start">
-    <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-auto overflow-hidden mb-4 md:mb-6 rounded-xl aspect-square">
-      <Image src={meImage}
-           alt="My photo" 
-           width={300}
-           height={300}
-           class="w-full h-full object-cover" />
-    </div>
-    
-    <div class="text-center md:text-left mb-4 md:mb-6">
-      <h1 class="text-xl md:text-2xl font-bold flex items-center mb-1 justify-center">
-        That's me!
-      </h1>
-      <p class="text-lg md:text-xl text-[color:var(--text-secondary)] mb-3 md:mb-4 max-w-xs font-semibold text-center">
-        Coding for 7 years. Still no idea what I'm doing, but hey, it works!
-      </p>
-    </div>
+<article class="identity-card bento-card h-full min-h-[32rem]">
+  <div class="identity-sprite" aria-hidden="true"><span>IR</span></div>
+  <div class="identity-copy">
+    <p class="eyebrow mb-4 text-[#c8c7bf]">Full-stack AI engineer</p>
+    <h1 class="identity-title">Ilya<br />Ryabchinski</h1>
+    <p class="identity-text mt-5">Eight years of shipping software from interface to infrastructure.</p>
   </div>
-</div> 
+</article>
