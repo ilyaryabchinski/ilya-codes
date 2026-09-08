@@ -1,8 +1,3 @@
----
-const pathname = new URL(Astro.request.url).pathname;
-const isProjectsPage = pathname.startsWith('/projects');
-const isPostsPage = pathname.startsWith('/posts');
----
 <script is:inline>
   if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
 </script>
@@ -10,31 +5,20 @@ const isPostsPage = pathname.startsWith('/posts');
 <header class="sticky top-0 z-50 border-b border-dashed border-[var(--rule)] bg-[var(--canvas)]">
   <nav class="site-shell flex min-h-14 items-center justify-between gap-4" aria-label="Primary navigation">
     <a href="/" class="retro text-[10px]">ILYA.CODES</a>
-    <div class="hidden items-center gap-1 md:flex">
-      <a href="/projects" class="pixel-button" aria-current={isProjectsPage ? 'page' : undefined}>PROJECTS</a>
-      <a href="/posts" class="pixel-button" aria-current={isPostsPage ? 'page' : undefined}>POSTS</a>
-    </div>
     <div class="flex items-center gap-2">
-      <button id="burger-menu-btn" class="pixel-button grid h-8 w-8 place-items-center p-0 md:hidden" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1 2h14v3H1zM1 7h14v3H1zM1 12h14v3H1z"/></svg>
-      </button>
-      <button id="theme-toggle" class="pixel-button grid h-8 w-8 place-items-center p-0" aria-label="Use dark theme" aria-pressed="false">
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M6 0h4v2h2v2h2v4h-2v2h-2V8H8V6h2V4H6v2H4v4h2v2h4v2H6v-2H4v-2H2V4h2V2h2z"/></svg>
+      <button id="theme-toggle" class="pixel-button grid h-8 w-8 place-items-center p-0" aria-label="Use dark theme" aria-pressed="false" data-theme="light">
+        <svg class="theme-icon theme-sun" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M6 0h4v3H6zM6 13h4v3H6zM0 6h3v4H0zM13 6h3v4h-3zM3 3h2v2H3zM11 3h2v2h-2zM3 11h2v2H3zM11 11h2v2h-2zM5 5h6v6H5z"/></svg>
+        <svg class="theme-icon theme-moon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0h5v2h-3v2H8v6h2v2h3v2H8v-2H6v-2H4V4h2V2h2z"/></svg>
       </button>
     </div>
   </nav>
-  <div id="mobile-menu" class="hidden border-t border-[var(--rule)] bg-[var(--surface)] md:hidden">
-    <nav class="site-shell grid gap-1 py-3" aria-label="Mobile navigation">
-      <a href="/projects" class="pixel-button text-center" aria-current={isProjectsPage ? 'page' : undefined}>PROJECTS</a>
-      <a href="/posts" class="pixel-button text-center" aria-current={isPostsPage ? 'page' : undefined}>POSTS</a>
-    </nav>
-  </div>
 </header>
 
 <script>
   const themeToggle = document.getElementById('theme-toggle');
   const syncThemeToggle = () => {
     const isDark = document.documentElement.classList.contains('dark');
+    themeToggle?.setAttribute('data-theme', isDark ? 'dark' : 'light');
     themeToggle?.setAttribute('aria-pressed', String(isDark));
     themeToggle?.setAttribute('aria-label', isDark ? 'Use light theme' : 'Use dark theme');
   };
@@ -44,11 +28,12 @@ const isPostsPage = pathname.startsWith('/posts');
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
     syncThemeToggle();
   });
-  document.getElementById('burger-menu-btn')?.addEventListener('click', (event) => {
-    const menu = document.getElementById('mobile-menu');
-    menu?.classList.toggle('hidden');
-    const isOpen = !menu?.classList.contains('hidden');
-    (event.currentTarget as HTMLButtonElement).setAttribute('aria-expanded', String(isOpen));
-    (event.currentTarget as HTMLButtonElement).setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-  });
 </script>
+
+<style>
+  #theme-toggle { padding: 0; }
+  .theme-icon { display: block; place-self: center; }
+  .theme-moon { display: none; }
+  #theme-toggle[data-theme="dark"] .theme-sun { display: none; }
+  #theme-toggle[data-theme="dark"] .theme-moon { display: block; }
+</style>

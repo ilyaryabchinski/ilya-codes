@@ -39,8 +39,8 @@ Spacing uses a 4px base. The page sits inside a 1240px shell with dashed vertica
 - **Accessibility:** decorations are CSS-only and ignored by assistive technology.
 
 ### Navigation
-- **Structure:** dashed header rail, desktop links, mobile menu button and drawer.
-- **States:** current page uses the primary fill.
+- **Structure:** dashed header rail with the ILYA.CODES home link and theme toggle. Project and post navigation lives in the homepage cards.
+- **States:** the theme toggle uses the primary fill, shows a sun in light mode and moon in dark mode, and retains visible focus.
 
 ### Full-stack level
 - A monochrome platform-game stage with a status rail, five floating technology blocks, a pixel Ilya character, brick ground, and a skill readout.
