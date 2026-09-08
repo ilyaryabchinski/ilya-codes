@@ -1,26 +1,104 @@
 ---
+import TechLogo from './TechLogo.astro';
+
 const loadout = [
-  ["FRONT END", "React / Next.js / TypeScript"],
-  ["BACK END", "Python / FastAPI / Go"],
-  ["AI SYSTEMS", "Agents / RAG / LangGraph"],
-  ["DATA", "PostgreSQL / Redis / DynamoDB"],
-  ["INFRA", "AWS / Kubernetes / Docker"],
+  { code: "TS", logo: "typescript", label: "Front end", skills: "React / Next.js / TypeScript", description: "Interfaces people actually want to use." },
+  { code: "PY", logo: "python", label: "Back end", skills: "Python / FastAPI / Go", description: "Services that do the heavy lifting." },
+  { code: "AI", logo: "openai", label: "AI systems", skills: "Agents / RAG / LangGraph", description: "AI that makes it out of the demo." },
+  { code: "DB", logo: "storage", label: "Data", skills: "PostgreSQL / Redis / DynamoDB", description: "The right data, in the right place." },
+  { code: "AWS", logo: "aws", label: "Infrastructure", skills: "AWS / Kubernetes / Docker", description: "From a local build to production." },
 ];
 ---
 
-<section class="bento-card fullstack-card h-full p-5 md:p-7">
-  <p class="eyebrow mb-3">Player class / full-stack AI engineer</p>
-  <h2 class="section-heading">Build the whole thing.</h2>
-  <p class="section-copy mt-5 max-w-2xl">
-    I ship production AI systems end to end: React interfaces, Python services,
-    agent orchestration, retrieval, data stores, and cloud infrastructure.
-  </p>
-  <div class="loadout-grid mt-7">
-    {loadout.map(([label, skills]) => (
-      <div class="loadout-item">
-        <span>{label}</span>
-        <strong>{skills}</strong>
-      </div>
-    ))}
-  </div>
+<section class="bento-card fullstack-card level-card" aria-labelledby="level-title">
+  <header class="level-header">
+    <p class="eyebrow">Player 01 / full-stack AI engineer</p>
+    <h2 id="level-title" class="section-heading">One player. The whole stack.</h2>
+  </header>
+  <fieldset class="skill-fieldset">
+    <legend class="sr-only">Explore Ilya's technology stack</legend>
+    <div class="level">
+    <div class="level-hud retro" aria-hidden="true"><span>WORLD 01</span><span>SELECT A BLOCK ↓</span></div>
+    <div class="cloud cloud-one" aria-hidden="true"></div>
+    <div class="cloud cloud-two" aria-hidden="true"></div>
+    <div class="blocks">
+      {loadout.map(({ code, logo, label, skills, description }, index) => (
+        <label class="skill-choice">
+          <input type="radio" name="level-skill" value={code} checked={index === 2} aria-label={`${label}: ${skills}`} aria-describedby={`skill-${code}`} />
+          <span class:list={["tech-block", !logo && "retro"]} aria-hidden="true">{logo ? <TechLogo name={logo} /> : code}<span class="block-mark">+</span></span>
+          <span class="skill-readout" id={`skill-${code}`}>
+            <span class="eyebrow">{label} / equipped</span>
+            <strong>{skills}</strong>
+            <span class="skill-description">{description}</span>
+          </span>
+        </label>
+      ))}
+    </div>
+    <div class="player" aria-hidden="true">
+      <span class="player-name retro">ILYA</span>
+      <svg viewBox="0 0 16 20" width="64" height="80" shape-rendering="crispEdges">
+        <path fill="var(--ink)" d="M5 0h7v1h2v4H3V2h2zM2 7h12v2h1v6h-3v3h2v2H9v-5H7v5H2v-2h2v-3H1V9h1z" />
+        <path fill="var(--surface)" d="M5 4h8v5H5zM3 10h2v4H3zM11 10h2v4h-2zM6 10h4v3H6z" />
+        <path fill="var(--ink)" d="M4 4h2v3H4zM9 5h1v1H9zM12 5h1v1h-1zM10 8h3v1h-3z" />
+        <path fill="var(--rule)" d="M6 14h4v1H6z" />
+      </svg>
+    </div>
+    <div class="hill hill-one" aria-hidden="true"></div>
+    <div class="hill hill-two" aria-hidden="true"></div>
+    <div class="flag" aria-hidden="true"><span>SHIP</span></div>
+    <div class="ground" aria-hidden="true"></div>
+    </div>
+  </fieldset>
+  <p class="level-help">Pick a block to explore my stack. Keyboard? Use the arrow keys.</p>
 </section>
+
+<style>
+  .level-card { padding: 0; overflow: hidden; }
+  .level-header { padding: 24px 24px 20px; }
+  .level-header h2 { margin-top: 12px; }
+  .skill-fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .level { --block-size: clamp(48px, 8vw, 64px); position: relative; min-width: 0; margin: 0; padding: 0; border: 0; height: 432px; background: var(--surface-muted); }
+  .level-hud { position: absolute; inset: 16px 20px auto; display: flex; justify-content: space-between; gap: 8px; font-size: .5rem; line-height: 1.6; }
+  .blocks { position: absolute; top: 88px; left: 24px; right: 24px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; z-index: 3; }
+  .skill-choice { display: grid; justify-items: center; cursor: pointer; }
+  .skill-choice input { position: absolute; opacity: 0; width: var(--block-size); height: var(--block-size); cursor: pointer; }
+  .tech-block { position: relative; display: grid; place-items: center; width: var(--block-size); height: var(--block-size); border: 4px solid var(--ink); background: var(--surface); box-shadow: inset 0 0 0 4px var(--rule), 4px 4px 0 var(--rule); font-size: .75rem; transition: transform 100ms steps(1); pointer-events: none; }
+  .block-mark { position: absolute; right: 4px; bottom: 0; font-size: .5rem; }
+  input:checked + .tech-block { background: var(--ink); color: var(--surface); }
+  input:focus-visible + .tech-block { outline: 3px solid var(--ink); outline-offset: 6px; }
+  .skill-choice:hover .tech-block { transform: translateY(-4px); }
+  .skill-choice:active .tech-block { transform: translateY(4px); }
+  .skill-readout { display: none; position: absolute; top: 232px; left: -24px; right: -24px; min-height: 112px; padding: 16px 24px; background: var(--surface); border-top: 4px solid var(--ink); cursor: default; }
+  input:checked ~ .skill-readout { display: grid; align-content: start; gap: 4px; }
+  .skill-readout strong { font-size: .9375rem; font-weight: 600; }
+  .skill-description { font-size: .875rem; color: var(--ink-muted); }
+  .player { position: absolute; left: 50%; bottom: 156px; width: 64px; margin-left: -32px; z-index: 2; }
+  .player-name { display: block; text-align: center; font-size: .5rem; line-height: 1.6; margin-bottom: 8px; }
+  .player svg { display: block; }
+  .level:has(input[value="TS"]:checked) .player { left: calc(10% + 16px); }
+  .level:has(input[value="PY"]:checked) .player { left: calc(30% + 8px); }
+  .level:has(input[value="DB"]:checked) .player { left: calc(70% - 8px); }
+  .level:has(input[value="AWS"]:checked) .player { left: calc(90% - 16px); }
+  .ground { position: absolute; top: 276px; height: 44px; width: 100%; border-top: 4px solid var(--ink); background-color: var(--surface); background-image: linear-gradient(var(--rule) 2px, transparent 2px), linear-gradient(90deg, var(--rule) 2px, transparent 2px); background-size: 32px 20px; }
+  .cloud { position: absolute; width: 64px; height: 16px; background: var(--surface); box-shadow: 12px -8px 0 var(--surface), 24px -16px 0 var(--surface), 40px -8px 0 var(--surface); }
+  .cloud-one { top: 68px; left: 12%; }
+  .cloud-two { top: 192px; right: 20%; }
+  .hill { position: absolute; bottom: 156px; width: 112px; height: 64px; background: var(--rule); opacity: .25; clip-path: polygon(0 100%, 0 75%, 15% 75%, 15% 50%, 30% 50%, 30% 25%, 40% 25%, 40% 0, 60% 0, 60% 25%, 70% 25%, 70% 50%, 85% 50%, 85% 75%, 100% 75%, 100% 100%); }
+  .hill-one { left: 0; }
+  .hill-two { left: 56%; height: 40px; }
+  .flag { position: absolute; right: 8px; bottom: 156px; height: 128px; border-right: 4px solid var(--ink); }
+  .flag span { display: block; padding: 4px 8px; background: var(--ink); color: var(--surface); font-family: "Press Start 2P", monospace; font-size: .5rem; }
+  .level-help { margin: 0; padding: 12px 24px 16px; font-size: .875rem; color: var(--ink-muted); border-top: 1px dashed var(--rule); }
+  @media (max-width: 480px) {
+    .level-header { padding: 20px 16px; }
+    .level-hud { left: 12px; right: 12px; font-size: .45rem; }
+    .blocks { left: 12px; right: 12px; gap: 4px; }
+    .tech-block { font-size: .6rem; }
+    .skill-readout { left: -12px; right: -12px; padding-inline: 16px; }
+    .level-help { padding-inline: 16px; }
+    .flag { right: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skill-choice:hover .tech-block, .skill-choice:active .tech-block { transform: none; }
+  }
+</style>

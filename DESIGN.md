@@ -42,14 +42,17 @@ Spacing uses a 4px base. The page sits inside a 1240px shell with dashed vertica
 - **Structure:** dashed header rail, desktop links, mobile menu button and drawer.
 - **States:** current page uses the primary fill.
 
-### Full-stack loadout
-- **Structure:** a labeled skill list in the hero's right-side panel.
-- **Content:** front end, back end, AI systems, data, and infrastructure.
-- **Accessibility:** labels remain readable in one column on mobile.
+### Full-stack level
+- A monochrome platform-game stage with a status rail, five floating technology blocks, a pixel Ilya character, brick ground, and a skill readout.
+- Blocks are native radios with 48–64px targets, inset pixel borders, hard 4px shadows, and inverted selected states. TypeScript, Python, OpenAI, storage, and AWS use monochrome inline SVG marks. Complete technology names appear in the readout.
+- Geometry: 4px base grid, 16px gaps, 320px playfield, 112px readout; mobile uses 4px gaps. Art uses existing theme colors. Sprite is 64×80px, hills 112×64px, clouds 64×16px, flag 128px tall to keep its banner above the player; all decorative scenery is hidden from assistive technology.
+- Selecting a block places Ilya below it and reveals its skills. Native radio arrow-key navigation, visible focus, and touch targets support visitors exploring engineering skills. No JavaScript required.
 
 ## 6. Motion & interaction
 
 Press feedback translates controls down 4px in 100ms. Hover changes color without easing. Linked arrows may nudge by 3px with a two-step animation. Reduced motion disables all transforms and animation.
+
+Level selection adapts the beui.dev radio reference's single-selection feedback to native radios. Character placement changes immediately. Block hover lifts 4px in 100ms steps; reduced motion disables the lift. No idle animation or new motion dependency.
 
 ## 7. Depth & surface
 
