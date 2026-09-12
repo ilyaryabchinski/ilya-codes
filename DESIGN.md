@@ -44,7 +44,7 @@ Spacing uses a 4px base. The page sits inside a 1240px shell with dashed vertica
 
 ### Full-stack level
 - A monochrome platform-game stage with a status rail, five floating technology blocks, a pixel Ilya character, brick ground, and a skill readout.
-- Blocks are native radios with 48–64px targets, inset pixel borders, hard 4px shadows, and inverted selected states. TypeScript, Python, OpenAI, storage, and AWS use monochrome inline SVG marks. Complete technology names appear in the readout.
+- Blocks are native radios with 48–64px targets, inset pixel borders, hard 4px shadows, and inverted selected states. TypeScript, Python, an AI mark with sparkles, storage, and AWS use monochrome inline SVG marks. Complete technology names appear in the readout.
 - Geometry: 4px base grid, 16px gaps, 320px playfield, 112px readout; mobile uses 4px gaps. Art uses existing theme colors. Sprite is 64×80px, hills 112×64px, clouds 64×16px, flag 128px tall to keep its banner above the player; all decorative scenery is hidden from assistive technology.
 - Selecting a block places Ilya below it and reveals its skills. Native radio arrow-key navigation, visible focus, and touch targets support visitors exploring engineering skills. No JavaScript required.
 
