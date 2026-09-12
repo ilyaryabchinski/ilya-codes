@@ -42,6 +42,11 @@ Spacing uses a 4px base. The page sits inside a 1240px shell with dashed vertica
 - **Structure:** dashed header rail with the ILYA.CODES home link and theme toggle. Project and post navigation lives in the homepage cards.
 - **States:** the theme toggle uses the primary fill, shows a sun in light mode and moon in dark mode, and retains visible focus.
 
+### Project card
+- **Structure:** an article with a CSS pixel-art media panel, project sequence and type label, title, short description, technology line, and GitHub link.
+- **States:** the source link uses the existing text-link nudge and visible focus. Cards stack to one column below 768px.
+- **Accessibility:** decorative project art is hidden from assistive technology; article headings and link text identify the project and its destination.
+
 ### Full-stack level
 - A monochrome platform-game stage with a status rail, five floating technology blocks, a pixel Ilya character, brick ground, and a skill readout.
 - Blocks are native radios with 48–64px targets, inset pixel borders, hard 4px shadows, and inverted selected states. TypeScript, Python, an AI mark with sparkles, storage, and AWS use monochrome inline SVG marks. Complete technology names appear in the readout.
